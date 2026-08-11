@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { offices, services, site } from "@/lib/site";
+import { offices, services, site, socials } from "@/lib/site";
 import { NewsletterForm } from "./forms/NewsletterForm";
 import {
   ArrowUpRight,
@@ -112,21 +112,28 @@ export function Footer() {
             <p className="mt-5 text-sm leading-relaxed text-paper/70">{site.description}</p>
           </div>
           <div className="flex items-center gap-3 md:justify-end">
-            {[
-              { Icon: Instagram, label: "Instagram" },
-              { Icon: LinkedIn, label: "LinkedIn" },
-              { Icon: Facebook, label: "Facebook" },
-              { Icon: Whatsapp, label: "WhatsApp" },
-            ].map(({ Icon, label }) => (
-              <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-paper/15 text-paper/80 transition-colors hover:border-gold hover:text-gold"
-              >
-                <Icon className="h-[1.15rem] w-[1.15rem]" />
-              </a>
-            ))}
+            {socials.map(({ href, label, icon }) => {
+              const Icon =
+                icon === "instagram"
+                  ? Instagram
+                  : icon === "linkedin"
+                    ? LinkedIn
+                    : icon === "facebook"
+                      ? Facebook
+                      : Whatsapp;
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-paper/15 text-paper/80 transition-colors hover:border-gold hover:text-gold"
+                >
+                  <Icon className="h-[1.15rem] w-[1.15rem]" />
+                </a>
+              );
+            })}
           </div>
         </div>
 

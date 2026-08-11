@@ -10,8 +10,16 @@ export const site = {
   phoneDisplay: "+91 93021 68439",
   phoneHref: "+919302168439",
   whatsapp: "+919302168439",
+  whatsappHref: "https://wa.me/919302168439",
   url: "https://zyntra.in",
 } as const;
+
+export const socials = [
+  { label: "WhatsApp", href: "https://wa.me/919302168439", icon: "whatsapp" as const },
+  { label: "Instagram", href: "https://www.instagram.com/", icon: "instagram" as const },
+  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: "linkedin" as const },
+  { label: "Facebook", href: "https://www.facebook.com/", icon: "facebook" as const },
+] as const;
 
 export const offices = [
   {
