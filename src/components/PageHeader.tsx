@@ -20,7 +20,7 @@ export function PageHeader({
       <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.05]" />
       <div
         className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, #c6a15b55, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #c9a24c55, transparent 70%)" }}
       />
       <div className="container-page relative">
         {breadcrumb && (

@@ -18,13 +18,13 @@ export function LogoMark({
     >
       <defs>
         <linearGradient id="zynGold" x1="6" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#d8bd86" />
-          <stop offset="0.55" stopColor="#c6a15b" />
-          <stop offset="1" stopColor="#a4823f" />
+          <stop stopColor="#e6cf95" />
+          <stop offset="0.55" stopColor="#c9a24c" />
+          <stop offset="1" stopColor="#9a7628" />
         </linearGradient>
         <linearGradient id="zynEmerald" x1="34" y1="4" x2="42" y2="12" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#26a884" />
-          <stop offset="1" stopColor="#127a5e" />
+          <stop stopColor="#2fb98d" />
+          <stop offset="1" stopColor="#158063" />
         </linearGradient>
       </defs>
       {/* Bold Z ribbon monogram */}

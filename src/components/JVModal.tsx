@@ -71,7 +71,7 @@ export function JVModal() {
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.06]" />
         <div
           className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-40 blur-3xl"
-          style={{ background: "radial-gradient(circle, #c6a15b, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #c9a24c, transparent 70%)" }}
         />
         <button
           type="button"
