@@ -14,15 +14,14 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden pt-28 pb-16 md:pt-32">
       <Image
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80"
-        alt="Premium residence"
+        src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=85"
+        alt="Bright, modern premium residence with pool in daylight"
         fill
         priority
         sizes="100vw"
         className="object-cover"
       />
       <div className="gradient-hero-overlay absolute inset-0" />
-      <div className="absolute inset-0 bg-ink/25" />
 
       <div className="container-page relative">
         <div className="max-w-3xl">

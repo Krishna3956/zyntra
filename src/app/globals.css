@@ -225,12 +225,19 @@ body {
 }
 
 .gradient-hero-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(7, 25, 20, 0.72) 0%,
-    rgba(7, 25, 20, 0.35) 40%,
-    rgba(7, 25, 20, 0.78) 100%
-  );
+  background:
+    linear-gradient(
+      100deg,
+      rgba(6, 20, 16, 0.8) 0%,
+      rgba(6, 20, 16, 0.5) 34%,
+      rgba(6, 20, 16, 0.16) 64%,
+      rgba(6, 20, 16, 0.02) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(6, 20, 16, 0.55) 0%,
+      rgba(6, 20, 16, 0) 36%
+    );
 }
 
 .noise-overlay {
