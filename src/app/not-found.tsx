@@ -21,8 +21,8 @@ export default function NotFound() {
             Back to home
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="/properties" className="btn btn-ghost-light">
-            Browse properties
+          <Link href="/joint-ventures" className="btn btn-ghost-light">
+            Explore joint ventures
           </Link>
         </div>
       </div>

@@ -16,7 +16,6 @@ const groups: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "About", href: "/about" },
       { label: "How we work", href: "/how-we-work" },
       { label: "Services", href: "/services" },
-      { label: "Properties", href: "/properties" },
       { label: "Locations", href: "/locations" },
       { label: "Insights", href: "/insights" },
       { label: "FAQ", href: "/faq" },
@@ -30,7 +29,6 @@ const groups: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Buy a property", href: "/buy" },
       { label: "Sell a property", href: "/sell" },
       { label: "Rent (take or give)", href: "/rent" },
-      { label: "Browse properties", href: "/properties" },
     ],
   },
   {

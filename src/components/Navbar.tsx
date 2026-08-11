@@ -41,7 +41,6 @@ const menu: NavItem[] = [
       { label: "Documentation", href: "/services/documentation", desc: "Paperwork done right" },
     ],
   },
-  { label: "Properties", href: "/properties" },
   {
     label: "Company",
     href: "/about",

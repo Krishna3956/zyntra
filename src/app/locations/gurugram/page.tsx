@@ -4,10 +4,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { PropertyCard } from "@/components/PropertyCard";
 import { ArrowRight, Mail, MapPin, Phone } from "@/components/Icons";
 import { offices } from "@/lib/site";
-import { properties } from "@/lib/properties";
 
 export const metadata: Metadata = {
   title: "Real Estate in Gurugram",
@@ -28,7 +26,6 @@ const areas = [
 ];
 
 export default function GurugramPage() {
-  const cityProps = properties.filter((p) => p.city === "Gurugram").slice(0, 3);
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     office.mapQuery
   )}`;
@@ -156,29 +153,6 @@ export default function GurugramPage() {
           </div>
         </div>
       </section>
-
-      {/* Listings */}
-      {cityProps.length > 0 && (
-        <section className="container-page py-16 md:py-20">
-          <SectionHeading
-            eyebrow="Available now"
-            title="Gurugram listings"
-            description="A snapshot of what we are working with in the city."
-            className="mb-12"
-          />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cityProps.map((p) => (
-              <PropertyCard key={p.slug} property={p} />
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/properties?city=Gurugram" className="btn btn-primary">
-              Browse all Gurugram properties
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
-      )}
 
       <CTASection
         title="Let's talk about your property in Gurugram."

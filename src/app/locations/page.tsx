@@ -3,15 +3,13 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionHeading } from "@/components/SectionHeading";
 import { OfficeCards } from "@/components/OfficeCards";
-import { PropertyCard } from "@/components/PropertyCard";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { ArrowRight } from "@/components/Icons";
-import { properties } from "@/lib/properties";
 import { offices } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Our Locations — Gurugram & Indore",
+  title: "Our Locations - Gurugram & Indore",
   description:
     "Visit Zyntra at our Gurugram head office in Sector 14 or our Indore regional office at Vijay Nagar. Two cities, one standard of service.",
 };
@@ -30,51 +28,43 @@ export default function LocationsPage() {
         <OfficeCards />
       </section>
 
-      {/* City-wise inventory */}
-      {offices.map((o, idx) => {
-        const cityProps = properties
-          .filter((p) => p.city === o.city)
-          .slice(0, 3);
-        return (
-          <section
-            key={o.id}
-            className={idx % 2 === 0 ? "bg-cream py-16 md:py-20" : "py-16 md:py-20"}
-          >
-            <div className="container-page">
-              <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                <SectionHeading
-                  eyebrow={`${o.city} · ${o.area}`}
-                  title={`Property in ${o.city}`}
-                  description={o.blurb}
-                />
-                <div className="flex shrink-0 flex-wrap gap-3">
-                  <Link href={`/locations/${o.id}`} className="btn btn-primary">
+      {/* City guides */}
+      <section className="bg-cream py-16 md:py-20">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="City guides"
+            title="Explore where we work"
+            description="Dive into what Zyntra does in each city - our office, the areas we cover and how we can help."
+            className="mb-12"
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {offices.map((o, i) => (
+              <Reveal key={o.id} delay={i * 80}>
+                <Link
+                  href={`/locations/${o.id}`}
+                  className="card card-lift group block h-full p-8"
+                >
+                  <span className="eyebrow text-gold-deep">
+                    {o.city} / {o.area}
+                  </span>
+                  <h3 className="mt-3 font-display text-2xl font-semibold text-ink group-hover:text-forest">
+                    Real estate in {o.city}
+                  </h3>
+                  <p className="mt-3 text-stone">{o.blurb}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-forest">
                     Explore {o.city}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href={`/properties?city=${o.city}`}
-                    className="btn btn-outline"
-                  >
-                    All listings
-                  </Link>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {cityProps.map((p, i) => (
-                  <Reveal key={p.slug} delay={i * 70}>
-                    <PropertyCard property={p} />
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      })}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CTASection
         title="Near Sector 14 or Vijay Nagar? Drop by."
-        description="Walk in for a coffee and a candid conversation, or start online — either way, we're glad to help."
+        description="Walk in for a coffee and a candid conversation, or start online - either way, we're glad to help."
         primaryLabel="Plan a visit"
         primaryHref="/contact"
       />

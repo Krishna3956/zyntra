@@ -310,7 +310,6 @@ export const navLinks = [
   { label: "Sell", href: "/sell" },
   { label: "Rent", href: "/rent" },
   { label: "Joint Ventures", href: "/joint-ventures" },
-  { label: "Properties", href: "/properties" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
 ];

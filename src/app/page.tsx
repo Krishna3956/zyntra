@@ -3,14 +3,12 @@ import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServicesGrid } from "@/components/ServicesGrid";
-import { PropertyCard } from "@/components/PropertyCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { OfficeCards } from "@/components/OfficeCards";
 import { Testimonials } from "@/components/Testimonials";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { ArrowRight, ArrowUpRight, Check, Handshake } from "@/components/Icons";
-import { featuredProperties } from "@/lib/properties";
 import { differentiators, insights, offices } from "@/lib/site";
 
 export default function Home() {
@@ -53,30 +51,6 @@ export default function Home() {
         <ServicesGrid />
       </section>
 
-      {/* Featured properties */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="container-page">
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Handpicked"
-              title="Featured properties"
-              description="A curated slice of what's available right now across our two cities. Every listing is verified before it reaches you."
-            />
-            <Link href="/properties" className="btn btn-primary shrink-0">
-              View all properties
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProperties.slice(0, 6).map((p, i) => (
-              <Reveal key={p.slug} delay={i * 70}>
-                <PropertyCard property={p} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Zyntra */}
       <section className="container-page py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -84,7 +58,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift">
               <Image
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                alt="Interior of a Zyntra-listed home"
+                alt="A well-appointed living space"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -93,7 +67,7 @@ export default function Home() {
             <div className="absolute -bottom-6 -right-4 hidden w-56 rounded-2xl border border-ink/8 bg-paper p-5 shadow-lift sm:block">
               <p className="font-display text-3xl font-semibold text-forest">100%</p>
               <p className="mt-1 text-sm text-stone">
-                of listings pass title &amp; document verification before we represent them.
+                of the deals we take on get independent title &amp; document checks first.
               </p>
             </div>
           </Reveal>

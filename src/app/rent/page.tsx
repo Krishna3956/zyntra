@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
-import { SectionHeading } from "@/components/SectionHeading";
 import { RentForm } from "@/components/forms/RentForm";
-import { PropertyCard } from "@/components/PropertyCard";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { ArrowRight, Check, Building, KeyIcon, Shield } from "@/components/Icons";
-import { properties } from "@/lib/properties";
 
 export const metadata: Metadata = {
-  title: "Rent — Lease or Let",
+  title: "Rent - Lease or Let",
   description:
     "Take a place on rent or give your property on rent with Zyntra. Verified tenants and landlords, background checks, agreements and optional management in Gurugram and Indore.",
 };
@@ -29,23 +26,21 @@ const forLandlords = [
 ];
 
 export default function RentPage() {
-  const rentals = properties.filter((p) => p.listingType === "rent").slice(0, 3);
-
   return (
     <>
       <PageHeader
-        eyebrow="Rent — Lease or Let"
+        eyebrow="Rent - Lease or Let"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Rent" }]}
         title="Renting, made refreshingly simple."
-        description="Whether you need a place to live or income from a property you own, Zyntra matches the right tenant with the right home — and handles the checks, agreements and handover."
+        description="Whether you need a place to live or income from a property you own, Zyntra matches the right tenant with the right home - and handles the checks, agreements and handover."
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="#rent-enquiry" className="btn btn-gold">
             Start your rental
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="/properties?listing=rent" className="btn btn-ghost-light">
-            Browse rentals
+          <Link href="/contact" className="btn btn-ghost-light">
+            Book a consultation
           </Link>
         </div>
       </PageHeader>
@@ -85,7 +80,7 @@ export default function RentPage() {
               </h3>
               <p className="mt-2 text-stone">
                 Turn an empty flat into reliable income. We find screened tenants, agree the right
-                rent and paper it properly — so you sleep easy.
+                rent and paper it properly - so you sleep easy.
               </p>
               <ul className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 {forLandlords.map((t) => (
@@ -148,25 +143,9 @@ export default function RentPage() {
         </div>
       </section>
 
-      {/* Rentals */}
-      <section className="container-page py-20 md:py-24">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading eyebrow="On rent now" title="Move-in-ready rentals" />
-          <Link href="/properties?listing=rent" className="btn btn-primary shrink-0">
-            See all rentals
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {rentals.map((p) => (
-            <PropertyCard key={p.slug} property={p} />
-          ))}
-        </div>
-      </section>
-
       <CTASection
         title="A better rental experience, either side of the deal."
-        description="Take on rent or give on rent — start with a two-minute form and let Zyntra do the legwork."
+        description="Take on rent or give on rent - start with a two-minute form and let Zyntra do the legwork."
         primaryLabel="Start now"
         primaryHref="#rent-enquiry"
       />

@@ -1,27 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { ArrowRight, Search, Sparkle } from "../Icons";
+import { ArrowRight, Sparkle } from "../Icons";
 import { stats } from "@/lib/site";
 
+const quickPaths = [
+  { label: "Buy", desc: "Homes & investments", href: "/buy" },
+  { label: "Sell", desc: "Reach real buyers", href: "/sell" },
+  { label: "Rent", desc: "Lease or let", href: "/rent" },
+  { label: "Joint ventures", desc: "Develop your land", href: "/joint-ventures" },
+];
+
 export function Hero() {
-  const router = useRouter();
-  const [listing, setListing] = useState<"sale" | "rent">("sale");
-  const [city, setCity] = useState("");
-  const [type, setType] = useState("");
-
-  function goSearch(e: React.FormEvent) {
-    e.preventDefault();
-    const params = new URLSearchParams();
-    params.set("listing", listing);
-    if (city) params.set("city", city);
-    if (type) params.set("type", type);
-    router.push(`/properties?${params.toString()}`);
-  }
-
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden pt-28 pb-16 md:pt-32">
       <Image
@@ -39,7 +28,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <span className="reveal eyebrow text-gold-soft" style={{ animationDelay: "0ms" }}>
             <Sparkle className="h-4 w-4" />
-            Gurugram · Indore
+            Gurugram &amp; Indore
           </span>
           <h1
             className="reveal mt-5 font-display text-4xl font-semibold leading-[1.03] tracking-tight text-paper sm:text-5xl md:text-6xl lg:text-[4.4rem]"
@@ -53,7 +42,7 @@ export function Hero() {
             className="reveal mt-6 max-w-xl text-lg leading-relaxed text-paper/80"
             style={{ animationDelay: "160ms" }}
           >
-            Buy, sell, rent or co-develop premium property — advised end to end by a
+            Buy, sell, rent or co-develop premium property - advised end to end by a
             team that treats your outcome as its own. One standard, across two cities.
           </p>
 
@@ -61,8 +50,8 @@ export function Hero() {
             className="reveal mt-8 flex flex-col gap-3 sm:flex-row"
             style={{ animationDelay: "240ms" }}
           >
-            <Link href="/properties" className="btn btn-gold">
-              Explore properties
+            <Link href="/contact" className="btn btn-gold">
+              Talk to an advisor
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link href="/joint-ventures" className="btn btn-ghost-light">
@@ -71,62 +60,27 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Search widget */}
-        <form
-          onSubmit={goSearch}
-          className="reveal mt-12 max-w-4xl rounded-3xl border border-paper/15 bg-paper/95 p-3 shadow-lift backdrop-blur-xl md:p-4"
+        {/* Quick paths */}
+        <div
+          className="reveal mt-12 grid max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4"
           style={{ animationDelay: "320ms" }}
         >
-          <div className="mb-3 flex gap-1.5 rounded-full bg-cream p-1 sm:w-max">
-            {(
-              [
-                { key: "sale", label: "Buy" },
-                { key: "rent", label: "Rent" },
-              ] as const
-            ).map((o) => (
-              <button
-                key={o.key}
-                type="button"
-                onClick={() => setListing(o.key)}
-                className={`rounded-full px-6 py-2 text-sm font-semibold transition-all ${
-                  listing === o.key ? "bg-forest text-paper shadow-sm" : "text-ink/60"
-                }`}
-              >
-                {o.label}
-              </button>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-[1fr_1fr_auto] md:grid-cols-[1.2fr_1.2fr_auto]">
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="field"
-              aria-label="City"
+          {quickPaths.map((q) => (
+            <Link
+              key={q.href}
+              href={q.href}
+              className="group rounded-2xl border border-paper/15 bg-paper/95 p-5 backdrop-blur-xl transition-colors hover:bg-paper"
             >
-              <option value="">Any city</option>
-              <option value="Gurugram">Gurugram</option>
-              <option value="Indore">Indore</option>
-            </select>
-            <select
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              className="field"
-              aria-label="Property type"
-            >
-              <option value="">Any type</option>
-              <option>Apartment</option>
-              <option>Builder Floor</option>
-              <option>Villa</option>
-              <option>Plot</option>
-              <option>Commercial</option>
-              <option>Office</option>
-            </select>
-            <button type="submit" className="btn btn-primary">
-              <Search className="h-4 w-4" />
-              Search
-            </button>
-          </div>
-        </form>
+              <span className="flex items-center justify-between">
+                <span className="font-display text-lg font-semibold text-ink group-hover:text-forest">
+                  {q.label}
+                </span>
+                <ArrowRight className="h-4 w-4 text-gold-deep transition-transform group-hover:translate-x-0.5" />
+              </span>
+              <span className="mt-1 block text-sm text-stone">{q.desc}</span>
+            </Link>
+          ))}
+        </div>
 
         {/* Inline stats */}
         <div

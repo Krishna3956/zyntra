@@ -3,11 +3,9 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionHeading } from "@/components/SectionHeading";
 import { BuyerForm } from "@/components/forms/BuyerForm";
-import { PropertyCard } from "@/components/PropertyCard";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { ArrowRight, Check, KeyIcon, Search, Shield, Chart, Handshake } from "@/components/Icons";
-import { properties } from "@/lib/properties";
 
 export const metadata: Metadata = {
   title: "Buy Property",
@@ -19,7 +17,7 @@ const benefits = [
   {
     icon: Search,
     title: "Curated, not endless",
-    body: "We shortlist only what genuinely fits your brief and budget — including off-market and pre-launch inventory you won't find on portals.",
+    body: "We shortlist only what genuinely fits your brief and budget - including off-market and pre-launch inventory you won't find on portals.",
   },
   {
     icon: Shield,
@@ -29,31 +27,29 @@ const benefits = [
   {
     icon: Chart,
     title: "Priced on data",
-    body: "Comparable-led benchmarking tells you what's fair — so you negotiate from facts, not a broker's guess.",
+    body: "Comparable-led benchmarking tells you what's fair - so you negotiate from facts, not a broker's guess.",
   },
   {
     icon: Handshake,
     title: "Handheld to registry",
-    body: "Loan facilitation, agreement, sale deed, registration and handover — managed end to end by one team.",
+    body: "Loan facilitation, agreement, sale deed, registration and handover - managed end to end by one team.",
   },
 ];
 
 const steps = [
   { n: "01", t: "Share your brief", b: "Tell us your city, budget, purpose and must-haves via the form below." },
-  { n: "02", t: "Get a curated shortlist", b: "We revert with matched options — on-market and off — usually within a day." },
+  { n: "02", t: "Get a curated shortlist", b: "We revert with matched options - on-market and off - usually within a day." },
   { n: "03", t: "Tour & diligence", b: "Visit shortlisted homes; we run title and price checks in parallel." },
   { n: "04", t: "Negotiate & close", b: "We negotiate hard, paper it cleanly, and stay through registration and handover." },
 ];
 
 export default function BuyPage() {
-  const forSale = properties.filter((p) => p.listingType === "sale").slice(0, 3);
-
   return (
     <>
       <PageHeader
         eyebrow="Buy Property"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Buy" }]}
-        title="Find a home — or an investment — worth owning."
+        title="Find a home - or an investment - worth owning."
         description="Zyntra turns a stressful search into a shortlist. Verified listings across Gurugram and Indore, honest pricing, and support that doesn't stop at the sale deed."
       >
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -61,8 +57,8 @@ export default function BuyPage() {
             Tell us what you want
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="/properties?listing=sale" className="btn btn-ghost-light">
-            Browse listings
+          <Link href="/contact" className="btn btn-ghost-light">
+            Book a consultation
           </Link>
         </div>
       </PageHeader>
@@ -72,7 +68,7 @@ export default function BuyPage() {
         <SectionHeading
           eyebrow="Why buy with Zyntra"
           title="The buyer's advantage"
-          description="Four things that make a Zyntra purchase calmer, safer and — more often than not — better priced."
+          description="Four things that make a Zyntra purchase calmer, safer and - more often than not - better priced."
           className="mb-12"
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -153,7 +149,7 @@ export default function BuyPage() {
                   {[
                     "A response within one business day",
                     "Options matched to your real brief",
-                    "Honest guidance — including 'not yet'",
+                    "Honest guidance - including 'not yet'",
                     "No obligation, no spam",
                   ].map((t) => (
                     <li key={t} className="flex items-center gap-2">
@@ -168,27 +164,9 @@ export default function BuyPage() {
         </div>
       </section>
 
-      {/* Related listings */}
-      <section className="bg-cream py-20 md:py-24">
-        <div className="container-page">
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="Available now" title="A few homes to get you started" />
-            <Link href="/properties?listing=sale" className="btn btn-primary shrink-0">
-              See all for sale
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {forSale.map((p) => (
-              <PropertyCard key={p.slug} property={p} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       <CTASection
         title="Not sure where to begin?"
-        description="Tell us roughly what you're after and your budget — we'll take it from there and come back with a real, curated shortlist."
+        description="Tell us roughly what you're after and your budget - we'll take it from there and come back with a real, curated shortlist."
         primaryLabel="Start your search"
         primaryHref="#buyer-enquiry"
       />
