@@ -47,10 +47,10 @@ export const offices = [
 ] as const;
 
 export const stats = [
-  { value: "₹1,200 Cr+", label: "Property transacted" },
-  { value: "2,400+", label: "Families & investors served" },
-  { value: "18", label: "Active joint developments" },
-  { value: "2", label: "Cities, one standard" },
+  { value: "2", label: "Cities we operate in" },
+  { value: "4", label: "Services, one roof" },
+  { value: "100%", label: "Verified before we list" },
+  { value: "1 day", label: "Typical response time" },
 ] as const;
 
 export type ServiceKey = "buy" | "sell" | "rent" | "joint-ventures";

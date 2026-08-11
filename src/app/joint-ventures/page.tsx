@@ -216,6 +216,41 @@ export default function JointVenturesPage() {
         </div>
       </section>
 
+      {/* Dive deeper */}
+      <section className="container-page py-20 md:py-24">
+        <SectionHeading
+          eyebrow="Dive deeper"
+          title="Everything you need to decide with confidence"
+          description="Joint ventures are our specialty. Explore the models, the process and the protections in detail."
+          className="mb-12"
+        />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { label: "Revenue share", href: "/joint-ventures/revenue-share", desc: "Take cash from sales proceeds, with no construction risk." },
+            { label: "Area / built-up share", href: "/joint-ventures/area-share", desc: "Own a share of the finished units to hold, rent or sell." },
+            { label: "The JV process", href: "/joint-ventures/process", desc: "From idle land to delivered project, stage by stage." },
+            { label: "Landowner protection", href: "/joint-ventures/landowner-protection", desc: "The safeguards built into every single deal." },
+            { label: "Eligibility & documents", href: "/joint-ventures/eligibility", desc: "Is your land a fit, and what you'll need." },
+            { label: "Joint venture FAQ", href: "/joint-ventures/faq", desc: "Straight answers to the questions landowners ask." },
+          ].map((l, i) => (
+            <Reveal key={l.href} delay={i * 60}>
+              <Link
+                href={l.href}
+                className="card card-lift group flex h-full items-start justify-between gap-4 p-6"
+              >
+                <span>
+                  <span className="block font-display text-lg font-semibold text-ink group-hover:text-forest">
+                    {l.label}
+                  </span>
+                  <span className="mt-1 block text-sm text-stone">{l.desc}</span>
+                </span>
+                <ArrowRight className="h-5 w-5 shrink-0 text-gold-deep" />
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* Form */}
       <section id="enquiry" className="container-page scroll-mt-24 py-20 md:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-14">

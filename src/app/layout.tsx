@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { JVModal } from "@/components/JVModal";
+import { JVFloatingCta } from "@/components/JVFloatingCta";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -70,6 +72,8 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <FloatingWhatsApp />
+        <JVFloatingCta />
+        <JVModal />
       </body>
     </html>
   );

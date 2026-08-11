@@ -47,13 +47,18 @@ export default function LocationsPage() {
                   title={`Property in ${o.city}`}
                   description={o.blurb}
                 />
-                <Link
-                  href={`/properties?city=${o.city}`}
-                  className="btn btn-outline shrink-0"
-                >
-                  All {o.city} listings
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <div className="flex shrink-0 flex-wrap gap-3">
+                  <Link href={`/locations/${o.id}`} className="btn btn-primary">
+                    Explore {o.city}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={`/properties?city=${o.city}`}
+                    className="btn btn-outline"
+                  >
+                    All listings
+                  </Link>
+                </div>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {cityProps.map((p, i) => (
